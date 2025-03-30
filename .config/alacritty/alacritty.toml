@@ -5,7 +5,7 @@ import = ["/home/hke/.config/alacritty/tokyo-night-storm.toml"]
 shell = "/bin/zsh"
 
 [window]
-opacity = 0.98
+opacity = 1
 
 [font]
 size = 13
