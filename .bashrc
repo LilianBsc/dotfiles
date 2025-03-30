@@ -119,3 +119,4 @@ fi
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/hke/.dotfiles/ --work-tree=/home/hke'
+alias lsl='ls -l'
