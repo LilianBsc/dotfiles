@@ -1,0 +1,24 @@
+[general]
+import = ["/home/hke/.config/alacritty/tokyo-night-storm.toml"]
+
+[terminal]
+shell = "/bin/zsh"
+
+[window]
+opacity = 0.98
+
+[font]
+size = 13
+
+  [font.normal]
+  family = "Hack Nerd Font Mono"
+  style = "Regular"
+
+  [font.bold]
+  family = "Hack Nerd Font Mono"
+  style = "Bold"
+
+  [font.italic]
+  family = "Hack Nerd Font Mono"
+  style = "Italic"
+
