@@ -114,3 +114,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias dotfiles='/usr/bin/git --git-dir=/home/hke/.dotfiles/ --work-tree=/home/hke'
 alias lsl='ls -l'
+alias lnvim='NVIM_APPNAME=nvim-lazyvim nvim'
+
+# Created by `pipx` on 2025-04-05 11:50:07
+export PATH="$PATH:/home/hke/.local/bin"
