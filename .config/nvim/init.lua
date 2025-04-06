@@ -1,3 +1,5 @@
+-- vim configuration
+vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
@@ -25,31 +27,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim
-local plugins = {
-    { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
-    { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' } },
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
-}
-local opts = {}
+-- setup lazy.nvim
+require("lazy").setup("plugins")
 
-require("lazy").setup(plugins, opts)
-
--- set color theme
-require("tokyonight").setup()
-vim.cmd[[colorscheme tokyonight-storm]]
-
--- set telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-
--- setup treesitter
-local configs = require("nvim-treesitter.configs")
-configs.setup({
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", "python"},
-    sync_install = false,
-    highlight = { enable = true },
-    indent = { enable = true },  
-})
+-- Keybindings
+vim.keymap.set('n', '<C-s>', ':w<CR>')
 
