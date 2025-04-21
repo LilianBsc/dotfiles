@@ -1,10 +1,15 @@
 -- vim configuration
-vim.cmd("set relativenumber")
+vim.cmd("set number relativenumber")
 vim.g.mapleader = " "
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
+
+-- keybindings
+vim.keymap.set('n', '<C-j>', ':bprev<CR>', { desc = 'Change buffer' })
+vim.keymap.set('n', '<C-k>', ':bnext<CR>', { desc = 'Change buffer' })
+vim.keymap.set('n', '<leader>q', ':bd<CR>', { desc = 'Remove buffer' })
 
 -- set leader to whitespace
 vim.g.mapleader = " "
