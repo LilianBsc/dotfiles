@@ -7,6 +7,6 @@ return {
     config = function()
         -- require("onedark").load()
         -- vim.cmd[[colorscheme onedark]]
-        vim.cmd[[colorscheme tokyonight-storm]]
+        vim.cmd[[colorscheme tokyonight-moon]]
     end
 }
