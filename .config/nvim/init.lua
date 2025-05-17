@@ -7,8 +7,8 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
 -- keybindings
-vim.keymap.set('n', '<C-j>', ':bprev<CR>', { desc = 'Change buffer' })
-vim.keymap.set('n', '<C-k>', ':bnext<CR>', { desc = 'Change buffer' })
+vim.keymap.set('n', 'gp', ':bprev<CR>', { desc = 'Change buffer' })
+vim.keymap.set('n', 'gn', ':bnext<CR>', { desc = 'Change buffer' })
 vim.keymap.set('n', '<leader>q', ':bd<CR>', { desc = 'Remove buffer' })
 
 -- set leader to whitespace
