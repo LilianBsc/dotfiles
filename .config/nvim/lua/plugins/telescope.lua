@@ -9,6 +9,7 @@ return {
             vim.keymap.set('n', '<leader>fh', ":Telescope find_files hidden=true<CR>", { desc = 'Telescope find files even hidden' })
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
             vim.keymap.set('n', '<leader>gh', ":Telescope grep_files hidden=true<CR>", { desc = 'Telescope grep files even hidden' })
+            vim.keymap.set('n', '<leader>fq', ":Telescope diagnostics<CR>", { desc = 'Telescope grep diagnostics' })
         end
     },
     {
