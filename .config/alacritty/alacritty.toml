@@ -1,5 +1,5 @@
 [general]
-import = ["/home/hke/.config/alacritty/tokyonight-moon.toml"]
+import = ["/home/hke/.config/alacritty/catppuccin-macchiato.toml"]
 
 [terminal]
 shell = "/bin/zsh"

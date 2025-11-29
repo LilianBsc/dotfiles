@@ -2,14 +2,14 @@
 vim.cmd("set number relativenumber")
 vim.g.mapleader = " "
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
 
 -- keybindings
-vim.keymap.set('n', 'gp', ':bprev<CR>', { desc = 'Change buffer' })
-vim.keymap.set('n', 'gn', ':bnext<CR>', { desc = 'Change buffer' })
-vim.keymap.set('n', '<leader>q', ':bd<CR>', { desc = 'Remove buffer' })
+vim.keymap.set('n', 'gp', '<cmd>bprev<CR>', { desc = 'Change buffer' })
+vim.keymap.set('n', 'gn', '<cmd>bnext<CR>', { desc = 'Change buffer' })
+vim.keymap.set('n', '<leader>q', '<cmd>bd<CR>', { desc = 'Remove buffer' })
 
 -- set leader to whitespace
 vim.g.mapleader = " "
@@ -34,7 +34,3 @@ vim.opt.rtp:prepend(lazypath)
 
 -- setup lazy.nvim
 require("lazy").setup("plugins")
-
--- Keybindings
-vim.keymap.set('n', '<C-s>', ':w<CR>')
-vim.keymap.set('n', '<C-q>', ':q<CR>')
