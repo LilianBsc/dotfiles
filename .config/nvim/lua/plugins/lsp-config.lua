@@ -1,84 +1,93 @@
 return {
-    {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end
+  {
+    "williamboman/mason.nvim",
+    config = true,
+  },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "mason.nvim" },
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "ts_ls",
+        "pyright",
+        "marksman",
+      },
     },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ts_ls", "pylsp" }
-            })
-        end
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            -- Configuration for TypeScript and React
-            vim.lsp.config("ts_ls",
-                {
-                    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-                    cmd = { "typescript-language-server", "--stdio" }
-                }
-            )
+  },
 
-            -- Configuration for Lua LS
-            vim.lsp.config("lua_ls",
-                {
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                        },
-                    },
-                }
-            )
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = { "mason-lspconfig.nvim" },
+    config = function()
+      -- ─────────────────────────────────────────────────────────────
+      -- Common LSP keymaps (buffer-local)
+      -- ─────────────────────────────────────────────────────────────
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(ev)
+          local map = function(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
+          end
 
-            -- Configuration for Pylsp (Python)
-            vim.lsp.config("pylsp",
-                {
-                    settings = {
-                        pylsp = {
-                            plugins = {
-                                -- Formatters
-                                black = { enabled = true },
-                                autopep8 = { enabled = false },
-                                yapf = { enabled = false },
+          map("n", "K", vim.lsp.buf.hover, "Hover")
+          map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+          map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("n", "gl", vim.diagnostic.open_float, "Line diagnostics")
+        end,
 
-                                -- Linters
-                                pylint = { enabled = true, executable = "pylint" },
-                                pyflakes = { enabled = false },
-                                pycodestyle = { enabled = false },
-                                -- Type checker
-                                pylsp_mypy = { enabled = true },
-                                -- Completion
-                                jedi_completion = { fuzzy = true },
-                                -- Import sorter
-                                pyls_isort = { enabled = true },
-                            },
-                        },
-                    },
-                    flags = {
-                        debounce_text_changes = 200,
-                    },
-                }
-            )
+      })
 
-            -- Configuration for Marksman (Markdown)
-            vim.lsp.config("marksman",
-                {
-                    filetypes = { "markdown" },
-                }
-            )
+      -- ─────────────────────────────────────────────────────────────
 
-            -- Keymaps for LSP
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-            vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = "Show LSP diagnostic under cursor" })
-        end
-    }
+      -- Lua
+
+      -- ─────────────────────────────────────────────────────────────
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              checkThirdParty = false,
+            },
+          },
+        },
+      })
+
+      -- ─────────────────────────────────────────────────────────────
+      -- TypeScript / JavaScript
+      -- ─────────────────────────────────────────────────────────────
+      vim.lsp.config("ts_ls", {
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+        },
+      })
+
+      -- ─────────────────────────────────────────────────────────────
+      -- Python (pyright)
+      -- ─────────────────────────────────────────────────────────────
+      vim.lsp.config("pyright", {
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic", -- "off" | "basic" | "strict"
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+
+      })
+
+      -- ─────────────────────────────────────────────────────────────
+      -- Markdown
+      -- ─────────────────────────────────────────────────────────────
+      vim.lsp.config("marksman", {})
+    end,
+  },
 }
