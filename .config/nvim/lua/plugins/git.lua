@@ -60,6 +60,44 @@ return {
         },
     },
     {
+        "FabijanZulj/blame.nvim",
+        lazy = false,
+        config = function()
+            -- Add a config table to the blame.nvim plugin.
+            -- This table is available for modification.
+            local blame_config = {
+                commit_detail_view = "10vsplit",
+                mappings = {  -- for verbosity
+                    commit_info = "i",
+                    show_commit = "<CR>",
+                    close = { "<esc>", "q" },
+                },
+                format_fn = function(line_porcelain, config, idx)
+                    local author = line_porcelain.author
+                    if #author > 20 then
+                        author = author:sub(1, 20) .. "..."
+                    end
+                    local date = os.date(config.date_format, line_porcelain.author_time)
+                    local summary = line_porcelain.summary
+                    if #summary > config.max_summary_width then
+                        summary = summary:sub(1, config.max_summary_width) .. "..."
+                    end
+                    return {
+                        idx = idx,
+                        values = {
+                            { textValue = line_porcelain.hash, hl = "BlameHash" },
+                            { textValue = date, hl = "BlameDate" },
+                            { textValue = author, hl = "BlameAuthor" },
+                            { textValue = summary, hl = "BlameSummary" },
+                        },
+                        format = "%s %s %s %s"
+                    }
+                end
+            }
+            require('blame').setup(blame_config)
+        end,
+    },
+    {
         "tpope/vim-fugitive" -- absolute banger
     },
 }
