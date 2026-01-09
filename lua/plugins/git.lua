@@ -95,6 +95,7 @@ return {
         width = 10, -- Set the width of the blame.nvim sidebar
       }
       require('blame').setup(blame_config)
+      vim.keymap.set("n", "<leader>b", "<cmd>BlameToggle<CR>", { desc = "Toggle Blame" })
     end,
     opts = {
       blame_options = { '-w' },
