@@ -91,7 +91,8 @@ return {
             stack_pop = "<BS>",
             show_commit = "<CR>",
             close = { "<esc>", "q" },
-        }
+        },
+        width = 40, -- Set the width of the blame.nvim sidebar
       }
       require('blame').setup(blame_config)
     end,
