@@ -75,16 +75,11 @@ return {
       -- Add a config table to the blame.nvim plugin.
       -- This table is available for modification.
       local blame_config = {
-        date_format = "%d.%m.%Y",
-        virtual_style = "float",
-        relative_date_if_recent = true, -- this is relative only for the latest month
-        focus_blame = true,
         merge_consecutive = false,
         max_summary_width = 30,
         colors = nil,
         blame_options = nil,
         commit_detail_view = "vsplit",
-        format_fn = require("blame.formats.default_formats").commit_date_author_fn,
         mappings = {
             commit_info = "i",
             stack_push = "<TAB>",
@@ -92,7 +87,6 @@ return {
             show_commit = "<CR>",
             close = { "<esc>", "q" },
         },
-        width = 10, -- Set the width of the blame.nvim sidebar
       }
       require('blame').setup(blame_config)
       vim.keymap.set("n", "<leader>b", "<cmd>BlameToggle<CR>", { desc = "Toggle Blame" })
