@@ -81,6 +81,7 @@ return {
             show_commit = "<CR>",
             close = { "<esc>", "q" },
         },
+        max_summary_width = 10,
       }
       require('blame').setup(blame_config)
       vim.keymap.set("n", "<leader>b", "<cmd>BlameToggle<CR>", { desc = "Toggle Blame" })
