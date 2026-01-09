@@ -92,7 +92,7 @@ return {
             show_commit = "<CR>",
             close = { "<esc>", "q" },
         },
-        width = 40, -- Set the width of the blame.nvim sidebar
+        width = 10, -- Set the width of the blame.nvim sidebar
       }
       require('blame').setup(blame_config)
     end,
