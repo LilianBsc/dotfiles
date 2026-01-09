@@ -90,4 +90,13 @@ return {
       blame_options = { '-w' },
     }
   },
+  {
+    "sindrets/diffview.nvim",
+    lazy = false,
+    config = function()
+      require("diffview").setup({
+        -- Your configuration here
+      })
+    end,
+  },
 }
