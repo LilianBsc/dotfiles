@@ -72,7 +72,9 @@ return {
     "FabijanZulj/blame.nvim",
     lazy = false,
     config = function()
-      require('blame').setup {
+      -- Add a config table to the blame.nvim plugin.
+      -- This table is available for modification.
+      local blame_config = {
         date_format = "%d.%m.%Y",
         virtual_style = "float",
         relative_date_if_recent = true, -- this is relative only for the latest month
@@ -91,6 +93,7 @@ return {
             close = { "<esc>", "q" },
         }
       }
+      require('blame').setup(blame_config)
     end,
     opts = {
       blame_options = { '-w' },
