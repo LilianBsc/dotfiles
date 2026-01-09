@@ -81,13 +81,23 @@ return {
             },
           },
         },
-
       })
+      vim.lsp.config("ruff", {})
 
       -- ─────────────────────────────────────────────────────────────
       -- Markdown
       -- ─────────────────────────────────────────────────────────────
       vim.lsp.config("marksman", {})
+
+       -- -- --
+      -- YAML --
+       -- -- --
+      vim.lsp.config("circleci_yaml_language_server", {})
+
+       -- ------------ --
+      -- Azure Pipeline --
+       -- ------------ --
+      vim.lsp.config("azure_pipelines_ls", {})
     end,
   },
 }

@@ -1,14 +1,14 @@
 return {
-    "mozanunal/sllm.nvim",
-    dependencies = {
-        "echasnovski/mini.notify",
-        "echasnovski/mini.pick",
-    },
-    opts = {
-        llm_cmd = "llm",
-        default_model = "codestral",
-        window_type = "vertical",
-    },
+  "mozanunal/sllm.nvim",
+  dependencies = {
+    "echasnovski/mini.notify",
+    "echasnovski/mini.pick",
+  },
+  opts = {
+    llm_cmd = "llm",
+    default_model = "codestral",
+    window_type = "vertical",
+  }
 }
 
 -- | Keymap         | Mode  | Action                                                     |

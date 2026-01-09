@@ -75,8 +75,7 @@ return {
       -- Add a config table to the blame.nvim plugin.
       -- This table is available for modification.
       local blame_config = {
-        commit_detail_view = "30vsplit",
-        format_fn = require("blame.formats.default_formats").commit_date_author_fn,
+        commit_detail_view = "10vsplit",
         mappings = {  -- for verbosity
             commit_info = "i",
             show_commit = "<CR>",
