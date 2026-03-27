@@ -1,6 +1,7 @@
 {
   "blame.nvim": { "branch": "main", "commit": "f3f6153ea94e1120f2776f22bbbd63c4aeebaf32" },
   "codediff.nvim": { "branch": "main", "commit": "e6d0efcf20197b266deeb8e4b6a2bbe7f0e8c6ec" },
+  "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "gitsigns.nvim": { "branch": "main", "commit": "1ee5c1fd068c81f9dd06483e639c2aa4587dc197" },
   "graph_view_toml_parser": { "branch": "main", "commit": "e52ddcbae563c924a19faf998f862ae61d13a777" },
   "graph_view_yaml_parser": { "branch": "master", "commit": "ecc5ba0a0b8c3a6eb3e7fa5a2caeeee2263729c3" },

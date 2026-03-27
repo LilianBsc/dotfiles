@@ -33,15 +33,13 @@ return {
           map("n", "K", vim.lsp.buf.hover, "Hover")
           map("n", "gd", vim.lsp.buf.definition, "Go to definition")
           map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
-          map("n", "gl", vim.diagnostic.open_float, "Line diagnostics")
+          map("n", "<leader>d", vim.diagnostic.open_float, "Line diagnostics")
         end,
 
       })
 
       -- ─────────────────────────────────────────────────────────────
-
       -- Lua
-
       -- ─────────────────────────────────────────────────────────────
       vim.lsp.config("lua_ls", {
         settings = {
