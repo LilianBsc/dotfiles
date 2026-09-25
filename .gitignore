@@ -1,0 +1,11 @@
+# dotfiles management (bare-repo git dir lives here)
+/.dotfiles/
+
+# nested git repos, synced via their own remotes/branches
+/.oh-my-zsh/
+/.config/nvim/
+
+# secrets and machine-local state
+/.vibe/.env
+/.vibe/logs/
+/.vibe/vibehistory
