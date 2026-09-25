@@ -1,0 +1,250 @@
+active_model = "ZAI GLM 5.3"
+applied_migrations = [
+    "bash_read_only_defaults_v1",
+]
+connectors = [
+    { name = "google_drive_mcp", disabled_tools = [] },
+    { name = "github_app", disabled = false },
+]
+installed_agents = [
+    "lean",
+]
+
+[tools.bash]
+allowlist = [
+    "basename",
+    "cat",
+    "cd",
+    "comm",
+    "cut",
+    "date",
+    "diff",
+    "dirname",
+    "du",
+    "echo",
+    "file",
+    "find",
+    "fmt",
+    "fold",
+    "git diff",
+    "git log",
+    "git status",
+    "grep",
+    "head",
+    "join",
+    "less",
+    "ls",
+    "md5sum",
+    "more",
+    "nl",
+    "od",
+    "paste",
+    "pwd",
+    "readlink",
+    "sha1sum",
+    "sha256sum",
+    "shasum",
+    "sort",
+    "stat",
+    "sum",
+    "tac",
+    "tail",
+    "tr",
+    "tree",
+    "uname",
+    "uniq",
+    "uv run python",
+    "vibe",
+    "wc",
+    "which",
+    "whoami",
+]
+
+[tools.web_fetch]
+allowlist = [
+    "github.com",
+]
+
+[tools.web_search]
+permission = "always"
+
+[tools.gitlab_merge_merge_request]
+permission = "ask"
+
+[tools.gitlab_approve_merge_request]
+permission = "ask"
+
+[tools.gitlab_unapprove_merge_request]
+permission = "ask"
+
+[tools.gitlab_create_or_update_file]
+permission = "ask"
+
+[tools.gitlab_create_repository]
+permission = "ask"
+
+[tools.gitlab_create_group]
+permission = "ask"
+
+[tools.gitlab_push_files]
+permission = "ask"
+
+[tools.gitlab_create_issue]
+permission = "ask"
+
+[tools.gitlab_create_merge_request]
+permission = "ask"
+
+[tools.gitlab_fork_repository]
+permission = "ask"
+
+[tools.gitlab_create_branch]
+permission = "ask"
+
+[tools.gitlab_delete_branch]
+permission = "ask"
+
+[tools.gitlab_protect_branch]
+permission = "ask"
+
+[tools.gitlab_unprotect_branch]
+permission = "ask"
+
+[tools.gitlab_update_default_branch]
+permission = "ask"
+
+[tools.gitlab_update_merge_request]
+permission = "ask"
+
+[tools.gitlab_create_note]
+permission = "ask"
+
+[tools.gitlab_create_merge_request_thread]
+permission = "ask"
+
+[tools.gitlab_resolve_merge_request_thread]
+permission = "ask"
+
+[tools.gitlab_delete_merge_request_discussion_note]
+permission = "ask"
+
+[tools.gitlab_update_merge_request_discussion_note]
+permission = "ask"
+
+[tools.gitlab_create_merge_request_discussion_note]
+permission = "ask"
+
+[tools.gitlab_create_merge_request_note]
+permission = "ask"
+
+[tools.gitlab_delete_merge_request_note]
+permission = "ask"
+
+[tools.gitlab_create_draft_note]
+permission = "ask"
+
+[tools.gitlab_update_draft_note]
+permission = "ask"
+
+[tools.gitlab_delete_draft_note]
+permission = "ask"
+
+[tools.gitlab_publish_draft_note]
+permission = "ask"
+
+[tools.gitlab_bulk_publish_draft_notes]
+permission = "ask"
+
+[tools.gitlab_create_merge_request_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_delete_merge_request_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_create_merge_request_note_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_delete_merge_request_note_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_update_issue_note]
+permission = "ask"
+
+[tools.gitlab_create_issue_note]
+permission = "ask"
+
+[tools.gitlab_create_issue_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_delete_issue_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_create_issue_note_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_delete_issue_note_emoji_reaction]
+permission = "ask"
+
+[tools.gitlab_update_issue]
+permission = "ask"
+
+[tools.gitlab_update_issue_description_patch]
+permission = "ask"
+
+[tools.gitlab_delete_issue]
+permission = "ask"
+
+[tools.gitlab_mark_todo_done]
+permission = "ask"
+
+[tools.gitlab_mark_all_todos_done]
+permission = "ask"
+
+[tools.gitlab_create_issue_link]
+permission = "ask"
+
+[tools.gitlab_delete_issue_link]
+permission = "ask"
+
+[tools.gitlab_update_project]
+permission = "ask"
+
+[tools.gitlab_create_label]
+permission = "ask"
+
+[tools.gitlab_update_label]
+permission = "ask"
+
+[tools.gitlab_delete_label]
+permission = "ask"
+
+[tools.gitlab_create_commit_status]
+permission = "ask"
+
+[tools.gitlab_upload_markdown]
+permission = "ask"
+
+[tools.connector_web_search_open_url]
+permission = "always"
+
+[[mcp_servers]]
+name = "gitlab"
+transport = "stdio"
+command = "bash"
+args = [
+    "-c",
+    "set -a; source \"$HOME/.vibe/.env\"; set +a; exec npx -y @zereight/mcp-gitlab",
+]
+startup_timeout_sec = 30
+
+[[models]]
+name = "mistral-small-latest"
+provider = "mistral"
+alias = "Mistral Small"
+thinking = "high"
+
+[[models]]
+name = "zai-glm-5-3"
+provider = "mistral"
+alias = "ZAI GLM 5.3"
+thinking = "high"
