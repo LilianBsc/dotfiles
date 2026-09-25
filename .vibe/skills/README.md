@@ -1,89 +1,36 @@
 # Agent Skills Directory
 
-This directory contains specialized agent skills for different development and operations tasks.
+This directory contains the Mistral Vibe global skills, installed by
+`~/.vibe/install-skills.sh`.
 
-## Available Skills
+## Installed skills
 
-### 1. Python Development (`python_development.md`)
-- Python coding, debugging, and testing
-- TDD workflow implementation
-- Code quality and best practices
-- Tooling with uv, pytest, ruff, mypy
+Matt Pocock's engineering skills ([mattpocock/skills](https://github.com/mattpocock/skills)),
+one directory per skill with a `SKILL.md`:
 
-### 2. SRE/DevOps (`sre_devops.md`)
-- Infrastructure as code (Terraform, Pulumi)
-- Kubernetes cluster management
-- CI/CD pipeline configuration
-- Monitoring and observability (Prometheus, Grafana)
-- Incident response and troubleshooting
-
-### 3. CyberSecurity (`cybersecurity.md`)
-- Vulnerability scanning (Trivy, bandit)
-- Security hardening (Lynis, CIS benchmarks)
-- Threat detection (Falco, Suricata)
-- Incident response and remediation
-- Compliance assessment
-
-### 4. Documentation (`documentation.md`)
-- Technical writing and documentation
-- API documentation (OpenAPI, Swagger)
-- Knowledge management and organization
-- Documentation tools (MkDocs, Sphinx, Docusaurus)
-- Documentation workflows and best practices
-
-### 5. Codebase Discovery (`codebase_discovery.md`)
-- Codebase exploration and analysis
-- Architecture analysis and visualization
-- Dependency analysis and mapping
-- Code navigation and search
-- Documentation generation
+ask-matt, codebase-design, code-review, diagnosing-bugs, domain-modeling,
+grilling, grill-me, grill-with-docs, handoff, implement,
+improve-codebase-architecture, prototype, research, resolving-merge-conflicts,
+setup-matt-pocock-skills, tdd, teach, to-questionnaire, to-spec, to-tickets,
+triage, wait-what, wayfinder, wizard, writing-for-agents.
 
 ## Usage
 
-To use a specific skill, reference it in your commands:
+Skills load on demand when a task matches their description. User-invocable
+skills can also be triggered by typing `/skill-name` in the prompt.
+
+## Setup and updates
+
+See `QUICK_START.md` in this directory for the machine-agnostic setup guide.
+To install or update on any machine:
 
 ```bash
-# Use Python Development skill
-skills_use(name="python_development")
-
-# Use SRE/DevOps skill  
-skills_use(name="sre_devops")
-
-# Use CyberSecurity skill
-skills_use(name="cybersecurity")
-
-# Use Documentation skill
-skills_use(name="documentation")
-
-# Use Codebase Discovery skill
-skills_use(name="codebase_discovery")
+bash ~/.vibe/install-skills.sh
 ```
 
-## Integration
-
-All skills are designed to work together and can be combined as needed for complex tasks.
-
-## Configuration
-
-Skills can be configured in the main `config.toml` file by adding them to the `skill_paths` and `enabled_skills` sections.
-
-```toml
-skill_paths = ["/home/lilian/.vibe/skills"]
-enabled_skills = ["python_development", "sre_devops", "cybersecurity", "documentation", "codebase_discovery"]
-```
-
-## Development
-
-To add new skills:
-1. Create a new markdown file in this directory
-2. Follow the existing format and structure
-3. Add the skill to the configuration
-4. Test the skill integration
-
-## Support
-
-For issues or questions about specific skills, refer to the documentation within each skill file or consult the references provided in each skill.
+Then run `/reload` inside Vibe (or restart it).
 
 ## License
 
-This work is licensed under the MIT License.
+The installed skills are from mattpocock/skills; see each skill directory
+for its license terms.
