@@ -44,10 +44,10 @@ Then pull the alias in and you are synced:
 source ~/.zshrc
 ```
 
-## What is synced separately
+## What is tracked where
 
-- **nvim**: `~/.config/nvim` is its own repository; its `master` pushes to the
-  `nvim` branch of this repo. Restore with:
-  `git clone -b nvim git@github.com:LilianBsc/dotfiles.git ~/.config/nvim`
-- **oh-my-zsh**: stock install, re-clone from upstream.
+- **nvim** (`~/.config/nvim`): tracked directly on `main`, including
+  `lazy-lock.json` so plugin versions are pinned. The `nvim` branch is the
+  archived history of its previous standalone repository.
+- **oh-my-zsh**: stock install, not tracked. Re-clone from upstream.
 - **Vibe skills**: run `~/.vibe/install-skills.sh` after checkout.
