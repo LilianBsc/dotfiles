@@ -1,8 +1,9 @@
 local utils = require("utils")
 
 local function my_diagnostics(colors)
+    local bg = colors.base or "#eff1f5"
     local fade = function(c)
-        return utils.fade(c, colors.base, 0.4)
+        return utils.fade(c, bg, 0.4)
     end
 
     -- Define diagnostic styles by severity (IMPORTANT)
@@ -46,39 +47,32 @@ return {
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-        flavour = "latte",
+        flavour = "frappe",
         background = {
           light = "latte",
         },
-        color_overrides = {
-          latte = {
-            base = "#dce0e8",
-            mantle = "#ccd0da",
-            crust = "#bcc0cc",
+        integrations = {
+          neotree = true,
+          treesitter = true,
+          nvimtree = true,
+          mini = {
+            enabled = true,
+            indentscope_color = "",
           },
         },
-        integrations = {
-                neotree = true,
-                treesitter = true,
-                nvimtree = true,
-                mini = {
-                    enabled = true,
-                    indentscope_color = "",
-                },
-            },
-            transparent = true,
-            float = {
-                transparent = true,
-            },
-            style = {
-                comments = { "italic" },
-                keywords = { "italic" },
-                strings = { "italic" },
-                functions = { "bold" },
-            },
-            auto_integration = true,
-            custom_highlights = my_diagnostics,
-        })
+        transparent = true,
+        float = {
+          transparent = true,
+        },
+        style = {
+          comments = { "italic" },
+          keywords = { "italic" },
+          strings = { "italic" },
+          functions = { "bold" },
+        },
+        auto_integration = true,
+        custom_highlights = my_diagnostics,
+      })
         vim.cmd.colorscheme("catppuccin")
     end,
 }
